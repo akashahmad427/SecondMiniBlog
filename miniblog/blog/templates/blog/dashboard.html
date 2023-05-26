@@ -1,0 +1,44 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block msg %}
+{% for message in messages %}
+    <span class="alert alert-info" >{{message}}</span>
+{% endfor %}
+{% endblock msg %}
+
+{% block content %}
+<div class="col-sm-12">
+    <h1 class="text-white my-5">Dashboard Page</h1>
+    <a href="{% url 'addpost' %}" class="btn btn-success">Add Post</a>
+    <h3 class="alert alert-info my-3 text-center ">Show Post Information</h3>
+    <table class="table table-hover bg-white">
+        <thead>
+          <tr class="text-center">
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        {% for i in forms %}
+        <tbody>
+          <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.title}}</td>
+            <td>{{i.desc}}</td>
+            <td>
+                <a href="{% url 'updatepost' i.id %}" class="btn btn-warning">Edit</a>
+              {% if perms.data.delete_post %}
+                <form action="{% url 'deletepost' i.id %}" method="POST">
+                  {% csrf_token %}
+                    <input type="submit" class="btn btn-danger" value="Delete">
+                </form>
+                {% endif %}
+            </td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+        
+</div>
+{% endblock content %}

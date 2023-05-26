@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="col-sm-10">
+    <h1 class="text-white my-5">Home Page</h1>
+    {% for fm in form %}
+      <div class="mt-4 p-5 bg-dark text-white rounded">
+        <h1 class="display-2 font-weight-bold my-3">{{fm.title}}</h1>
+        <p><h5>{{fm.desc}}</h5></p>
+      </div>
+      {% endfor %}
+</div>
+{% endblock content %}

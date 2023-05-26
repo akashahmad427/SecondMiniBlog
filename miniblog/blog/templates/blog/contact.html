@@ -1,0 +1,43 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="col-sm-12">
+<form class="text-center border border-light p-5 my-2" action="#!">
+
+    <p class="h4 mb-6"><h1 class="bg-primary mb-4 p-5">Contact us</h1></p>
+
+    <!-- Name -->
+    <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Name">
+
+    <!-- Email -->
+    <input type="email" id="defaultContactFormEmail" class="form-control mb-4" placeholder="E-mail">
+
+    <!-- Subject -->
+    <label>Subject</label>
+    <select class="browser-default custom-select mb-4">
+        <option value="" disabled>Choose option</option>
+        <option value="1" selected>Feedback</option>
+        <option value="2">Report a bug</option>
+        <option value="3">Feature request</option>
+        <option value="4">Any other</option>
+    </select>
+
+    <!-- Message -->
+    <div class="form-group mb-4">
+        <textarea class="form-control rounded-2" id="exampleFormControlTextarea2" rows="3" placeholder="Address"></textarea>
+    </div>
+
+    <!-- Message -->
+    <div class="form-group mb-4">
+        <textarea class="form-control rounded-2" id="exampleFormControlTextarea2" rows="3" placeholder="Message"></textarea>
+    </div>
+
+
+
+    <!-- Send button -->
+    <a href="mailto:nameakash647@gmail.com" class="btn btn-info btn-block" type="submit" >Send</a>
+</form>
+<!-- Default form contact -->
+</div>
+{% endblock content %}
